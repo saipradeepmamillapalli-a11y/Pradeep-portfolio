@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mamillapalli Sai Pradeep, software developer and Computer Science student from Guntur, India. Experience, projects, certificates and skills." />
+  <title>Mamillapalli Sai Pradeep | Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="preloader.css" />
+  <link rel="stylesheet" href="challenge.css" />
+  <link rel="stylesheet" href="features.css" />
+  <link rel="preload" href="boot-photo.jpg" as="image" />
+
+  <!-- Runs before the page paints: shows the intro only when motion is allowed.
+       Safety net: if the intro script never finishes, the page opens after 12 seconds. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      root.classList.add('is-preloading');
+      setTimeout(function () {
+        if (!root.classList.contains('is-preloading')) return;
+        root.classList.remove('is-preloading');
+        var p = document.getElementById('preloader');
+        if (p) p.remove();
+        window.dispatchEvent(new Event('site:ready'));
+      }, 12000);
+    })();
+  </script>
+</head>
+<body>
+  <!-- PRELOADER: a cracked display that gets repaired, then opens the site -->
+  <div class="preloader" id="preloader" role="dialog" aria-modal="true" aria-label="Display repair intro">
+    <div class="pl-stage">
+      <div class="pl-tilt">
+        <div class="pl-monitor">
+          <div class="pl-bezel">
+            <div class="pl-screen">
+              <div class="pl-restored" aria-hidden="true"><img class="pl-photo" src="boot-photo.jpg" alt="" width="1200" height="750" decoding="async" /></div>
+              <div class="pl-tiles" aria-hidden="true"></div>
+              <div class="pl-dead" aria-hidden="true"></div>
+              <pre class="pl-hex" aria-hidden="true"></pre>
+              <div class="pl-glitch" aria-hidden="true"></div>
+              <div class="pl-scan" aria-hidden="true"></div>
+            </div>
+            <div class="pl-glass" aria-hidden="true">
+              <svg class="pl-cracks" viewBox="0 0 1000 625" aria-hidden="true"></svg>
+              <div class="pl-glare"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-log" aria-live="polite"></div>
+      <div class="pl-bar" aria-hidden="true"><span></span></div>
+    </div>
+    <button class="pl-skip" type="button">Skip intro</button>
+  </div>
+
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <a class="brand" href="#home" aria-label="Home">SP<span class="brand-full"> Mamillapalli Sai Pradeep</span></a>
+
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="scan-sweep" aria-hidden="true"></div>
+  <div class="theme-switch" role="group" aria-label="Display options">
+    <button type="button" class="theme-dot" data-accent="blue" style="--swatch:#3aa0ff" aria-label="Blue accent" aria-pressed="true"></button>
+    <button type="button" class="theme-dot" data-accent="green" style="--swatch:#3ee08f" aria-label="Green accent" aria-pressed="false"></button>
+    <button type="button" class="theme-dot" data-accent="amber" style="--swatch:#ffb23f" aria-label="Amber accent" aria-pressed="false"></button>
+    <button type="button" class="calm-toggle" id="calm-toggle" aria-pressed="false">Calm</button>
+  </div>
+
+  <!-- Side navigation: a slim rail that opens on hover (right edge on phones) -->
+  <nav class="side-nav" aria-label="Sections">
+    <a href="#home" data-nav="home"><span class="dot" aria-hidden="true"></span><span class="label">Home</span></a>
+    <a href="#about" data-nav="about"><span class="dot" aria-hidden="true"></span><span class="label">About</span></a>
+    <a href="#experience" data-nav="experience"><span class="dot" aria-hidden="true"></span><span class="label">Experience</span></a>
+    <a href="#projects" data-nav="projects"><span class="dot" aria-hidden="true"></span><span class="label">Projects</span></a>
+    <a href="#highlights" data-nav="highlights"><span class="dot" aria-hidden="true"></span><span class="label">Highlights</span></a>
+    <a href="#certificates" data-nav="certificates"><span class="dot" aria-hidden="true"></span><span class="label">Certificates</span></a>
+    <a href="#skills" data-nav="skills"><span class="dot" aria-hidden="true"></span><span class="label">Skills</span></a>
+    <a href="#contact" data-nav="contact"><span class="dot" aria-hidden="true"></span><span class="label">Contact</span></a>
+  </nav>
+
+  <a class="to-top" href="#home" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+  </a>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <svg class="skyline" viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="sky-win" width="14" height="18" patternUnits="userSpaceOnUse">
+            <rect x="4" y="5" width="4" height="6" fill="#3aa0ff" opacity="0.3" />
+            <rect x="9" y="12" width="3" height="4" fill="#3aa0ff" opacity="0.12" />
+          </pattern>
+          <linearGradient id="sky-fade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#05070c" stop-opacity="0" />
+            <stop offset="1" stop-color="#05070c" stop-opacity="1" />
+          </linearGradient>
+          <g id="bldg">
+            <rect x="0" y="170" width="90" height="130" />
+            <rect x="84" y="120" width="72" height="180" />
+            <rect x="150" y="186" width="58" height="114" />
+            <rect x="202" y="80" width="96" height="220" />
+            <rect x="292" y="140" width="80" height="160" />
+            <rect x="366" y="40" width="58" height="260" />
+            <rect x="418" y="124" width="104" height="176" />
+            <rect x="516" y="168" width="64" height="132" />
+            <rect x="574" y="96" width="88" height="204" />
+            <rect x="656" y="150" width="70" height="150" />
+            <rect x="720" y="60" width="54" height="240" />
+            <rect x="768" y="132" width="110" height="168" />
+            <rect x="872" y="184" width="62" height="116" />
+            <rect x="928" y="104" width="92" height="196" />
+            <rect x="1014" y="158" width="76" height="142" />
+            <rect x="1084" y="72" width="64" height="228" />
+            <rect x="1142" y="136" width="100" height="164" />
+            <rect x="1236" y="176" width="70" height="124" />
+            <rect x="1300" y="110" width="86" height="190" />
+            <rect x="1380" y="150" width="66" height="150" />
+            <rect x="1440" y="44" width="50" height="256" />
+            <rect x="1484" y="120" width="116" height="180" />
+          </g>
+        </defs>
+        <use href="#bldg" fill="#0b1320" />
+        <use href="#bldg" fill="url(#sky-win)" />
+        <rect x="0" y="236" width="1600" height="64" fill="url(#sky-fade)" />
+      </svg>
+
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="status-row">
+            <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to software roles</p>
+            <p class="local-time" id="local-time">Guntur, India</p>
+          </div>
+          <h1 id="hero-title" class="name">
+            <span class="line">Mamillapalli</span>
+            <span class="line">Sai</span>
+            <span class="line">Pradeep</span>
+          </h1>
+          <p class="role"><span id="typed">Software Developer</span><span class="caret" aria-hidden="true"></span></p>
+          <p class="hero-line">Computer Science student and software developer who builds practical, clean software in Python. Looking for an entry-level Software Engineer role.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-ghost" href="resume.pdf" download>Download resume</a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+          <ul class="facts">
+            <li><strong>2</strong>internships</li>
+            <li><strong>3</strong>certifications</li>
+            <li><strong>2027</strong>B.Tech graduate</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <article class="id-card tilt" id="id-card" data-role="software">
+            <div class="id-top">Future role</div>
+            <div class="photo">
+              <img src="photo.jpg" alt="Portrait of Mamillapalli Sai Pradeep" width="720" height="960" fetchpriority="high" decoding="async" />
+              <span class="scan" aria-hidden="true"></span>
+            </div>
+            <span class="id-stamp" id="id-stamp">Engineering</span>
+            <div class="id-body">
+              <p class="id-name">Mamillapalli Sai Pradeep</p>
+              <p class="id-role" id="id-role">Software Developer</p>
+              <p class="id-mission" id="id-mission">Turns requirements into reliable, maintainable code.</p>
+              <p class="id-meta">Guntur, Andhra Pradesh, India<br />B.Tech CSE, expected 2027</p>
+            </div>
+          </article>
+          <div class="role-switch" id="role-switch" role="group" aria-label="Future roles"></div>
+          <div class="card-actions">
+            <button type="button" class="card-share" id="card-share">Copy link to this role</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container split">
+        <h2 class="section-title">About</h2>
+        <div class="split-body">
+          <p class="lead">Motivated Computer Science student with hands-on experience in Python and core software development. I design clean code and build practical technical solutions, and I am seeking an entry-level Software Engineer role where I can contribute to scalable projects in a collaborative team.</p>
+          <dl class="rows stagger">
+            <div class="row">
+              <dt>Education</dt>
+              <dd>B.Tech, Computer Science and Engineering, Sri Mittapalli College of Engineering, Guntur (expected 2027)<br />Intermediate (MPC), Sri Chaitanya Junior College, Guntur (2023)<br />Secondary education, ZPHS High School, Guntur (2020)</dd>
+            </div>
+            <div class="row">
+              <dt>Focus areas</dt>
+              <dd>Python development, full-stack web development, databases, problem solving, AI-assisted development</dd>
+            </div>
+            <div class="row">
+              <dt>Languages</dt>
+              <dd>English, Telugu, Hindi</dd>
+            </div>
+            <div class="row">
+              <dt>Location</dt>
+              <dd>Guntur, Andhra Pradesh, India. Open to software roles and internships.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="container split">
+        <h2 class="section-title">Experience</h2>
+        <div class="split-body">
+          <ol class="timeline stagger">
+            <li class="job">
+              <p class="job-date">6 months</p>
+              <h3>Full Stack Python Developer, SL Tech Solutions</h3>
+              <p class="job-meta">Internship</p>
+              <ul class="notes">
+                <li>Worked as a full-stack Python developer on web application development.</li>
+                <li>Built and connected frontend, backend and database parts of applications.</li>
+              </ul>
+            </li>
+            <li class="job">
+              <p class="job-date">3 months</p>
+              <h3>Full Stack Developer, SL Tech Solutions</h3>
+              <p class="job-meta">Internship</p>
+              <ul class="notes">
+                <li>Gained further hands-on experience across the full development cycle.</li>
+                <li>Worked with frontend, backend and database technologies in a team setting.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container split">
+        <h2 class="section-title">Projects</h2>
+        <div class="split-body stagger">
+          <article class="project">
+            <h3>Secure Image Steganography App</h3>
+            <p class="project-text">A secure Python application that hides encrypted text messages inside digital images, enabling confidential communication and safe data transmission.</p>
+            <div class="flow" aria-hidden="true">
+              <svg viewBox="0 0 600 110" focusable="false">
+                <path class="flow-line" d="M60 55 H540" />
+                <rect class="flow-node" x="10" y="38" width="100" height="34" rx="4" />
+                <rect class="flow-node" x="130" y="38" width="100" height="34" rx="4" />
+                <rect class="flow-node" x="250" y="38" width="100" height="34" rx="4" />
+                <rect class="flow-node" x="370" y="38" width="100" height="34" rx="4" />
+                <rect class="flow-node" x="490" y="38" width="100" height="34" rx="4" />
+                <text class="flow-label" x="60" y="60">Message</text>
+                <text class="flow-label" x="180" y="60">Encrypt</text>
+                <text class="flow-label" x="300" y="60">Embed</text>
+                <text class="flow-label" x="420" y="60">Extract</text>
+                <text class="flow-label" x="540" y="60">Decrypt</text>
+                <circle class="flow-dot" r="4"><animateMotion dur="4s" repeatCount="indefinite" path="M60 55 H540" /></circle>
+                <circle class="flow-dot" r="4"><animateMotion dur="4s" begin="2s" repeatCount="indefinite" path="M60 55 H540" /></circle>
+              </svg>
+            </div>
+            <p class="stack">Python, steganography, encryption</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="section">
+      <div class="container split">
+        <h2 class="section-title">Highlights</h2>
+        <div class="split-body">
+          <div class="stats stagger">
+            <div class="stat">
+              <p class="stat-value">2</p>
+              <p class="stat-label">Internships completed at SL Tech Solutions</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value">3</p>
+              <p class="stat-label">Certifications and workshop credentials</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value">2027</p>
+              <p class="stat-label">B.Tech CSE graduation year</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value">3</p>
+              <p class="stat-label">Languages: English, Telugu, Hindi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section">
+      <div class="container split">
+        <h2 class="section-title">Certificates</h2>
+        <div class="split-body">
+          <table class="ledger">
+            <thead>
+              <tr>
+                <th scope="col">Certificate</th>
+                <th scope="col">Issued by</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Proof</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cert-name">Python (Basic)</td>
+                <td>HackerRank</td>
+                <td>Validates fundamental programming and problem-solving skills.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="cert-name">SQL (Basic)</td>
+                <td>HackerRank</td>
+                <td>Database querying and data manipulation.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="cert-name">Artificial Intelligence and Machine Learning Workshop</td>
+                <td>AIMERS</td>
+                <td>Participation certificate.</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container split">
+        <h2 class="section-title">Skills</h2>
+        <div class="split-body">
+          <dl class="rows stagger">
+            <div class="row">
+              <dt>Programming</dt>
+              <dd>Python</dd>
+            </div>
+            <div class="row">
+              <dt>Database</dt>
+              <dd>MySQL, SQL</dd>
+            </div>
+            <div class="row">
+              <dt>Web technologies</dt>
+              <dd>HTML, CSS, full-stack web development</dd>
+            </div>
+            <div class="row">
+              <dt>AI tools</dt>
+              <dd>ChatGPT, Perplexity, PyCharm</dd>
+            </div>
+            <div class="row">
+              <dt>Communication</dt>
+              <dd>Effective verbal and written communication</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container split">
+        <h2 class="section-title">Contact</h2>
+        <div class="split-body">
+          <a class="contact-email" href="mailto:saipradeepmamillapalli@gmail.com">saipradeepmamillapalli@gmail.com</a>
+          <div class="copy-row">
+            <button class="copy-btn" type="button" data-copy="saipradeepmamillapalli@gmail.com">Copy email</button>
+          </div>
+          <dl class="rows contact-rows stagger">
+            <div class="row">
+              <dt>Location</dt>
+              <dd>Prathipadu, Guntur, Andhra Pradesh, India</dd>
+            </div>
+            <div class="row">
+              <dt>Phone</dt>
+              <dd>
+                <form class="flag-form" id="flag-form" autocomplete="off">
+                  <label class="flag-label" for="flag-input">My number is hidden. Find the flag on the Kali machine and enter it here.</label>
+                  <div class="flag-row">
+                    <input id="flag-input" class="flag-input" type="text" placeholder="FLAG{...}" aria-describedby="flag-msg" />
+                    <button class="btn btn-primary flag-submit" type="submit">Submit</button>
+                  </div>
+                </form>
+                <p class="flag-msg" id="flag-msg" role="status" aria-live="polite"></p>
+                <div class="phone-reveal" id="phone-reveal" hidden>
+                  <a id="phone-link" href="#contact">Phone</a>
+                  <button class="copy-btn" type="button" id="phone-copy" data-copy="">Copy number</button>
+                </div>
+              </dd>
+            </div>
+          </dl>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="resume.pdf" download>Download resume</a>
+            <button class="btn btn-ghost summary-btn" type="button">Copy my summary</button>
+            <!-- Paste your Calendly or Cal.com link in href, then delete the hidden attribute -->
+            <a class="btn btn-ghost booking-btn" href="https://cal.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer" hidden>Book an interview</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- CHALLENGE -->
+    <section id="challenge" class="section">
+      <div class="container split">
+        <h2 class="section-title">Challenge</h2>
+        <div class="split-body">
+          <p class="lead">Can you find my flag? Open a Kali machine and capture it within 5 minutes. The flag reveals my phone number.</p>
+          <a class="btn btn-primary challenge-btn" href="kali.html">Test your knowledge</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-note">&copy; 2026 Mamillapalli Sai Pradeep &middot; Press / to search</p>
+    </div>
+    <p class="mega" aria-hidden="true">Pradeep</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="preloader.js"></script>
+  <script src="script.js"></script>
+  <script src="challenge.js"></script>
+  <script src="features.js"></script>
+  <script src="idcard.js"></script>
+  <script src="visitor.js"></script>
+</body>
+</html>

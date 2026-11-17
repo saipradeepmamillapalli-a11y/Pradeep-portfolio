@@ -1,0 +1,108 @@
+/* Contact form that reveals the phone number, and the Test your knowledge section */
+.flag-form {
+  display: grid;
+  gap: 12px;
+  max-width: 34em;
+}
+
+.flag-form[hidden] {
+  display: none;
+}
+
+.flag-label {
+  font-size: 0.95rem;
+  color: var(--slate);
+}
+
+.flag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flag-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 14px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--paper);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.flag-input::placeholder {
+  color: var(--slate);
+  opacity: 0.7;
+}
+
+.flag-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+}
+
+.flag-submit {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.flag-msg {
+  min-height: 1.5em;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.flag-msg.is-error {
+  color: #ff7a7a;
+}
+
+.flag-msg.is-ok {
+  color: var(--accent);
+}
+
+.phone-reveal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.phone-reveal[hidden] {
+  display: none;
+}
+
+.phone-reveal a {
+  color: var(--paper);
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.phone-reveal a:hover {
+  color: var(--accent);
+}
+
+.challenge-btn {
+  margin-top: 28px;
+}
+
+/* Contact actions: resume and booking buttons */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.contact-actions .resume-btn {
+  margin-top: 0;
+}
+
+.booking-btn[hidden] {
+  display: none;
+}

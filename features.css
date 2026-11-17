@@ -1,0 +1,456 @@
+/* New features: colour dots, glitch on hover, scan-line sweep, command palette,
+   availability countdown, badge wall and packet-flow diagram */
+
+/* ---------- Colour dots (top right) ---------- */
+.theme-switch {
+  position: fixed;
+  bottom: 18px;
+  left: 22px;
+  z-index: 110;
+  display: flex;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--glass);
+  border: 1px solid rgba(232, 241, 251, 0.08);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.theme-dot {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: var(--swatch);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-dot:hover {
+  transform: scale(1.15);
+}
+
+.theme-dot[aria-pressed="true"] {
+  border-color: var(--paper);
+}
+
+/* ---------- Glitch on hover (name, section titles, ID card name) ---------- */
+.name .line:hover,
+.section-title:hover,
+.id-name:hover {
+  animation: glitch 0.45s steps(2, end) 1;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 3px 0 rgba(255, 0, 90, 0.75), -3px 0 rgba(0, 255, 255, 0.6);
+  }
+  50% {
+    text-shadow: -4px 0 rgba(255, 0, 90, 0.75), 4px 0 rgba(0, 255, 255, 0.6);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+/* ---------- Scan line that sweeps down when the section changes ---------- */
+.scan-sweep {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 120;
+  height: 2px;
+  opacity: 0;
+  pointer-events: none;
+  background: var(--accent);
+  box-shadow: 0 0 18px var(--accent-glow);
+}
+
+.scan-sweep.is-sweeping {
+  animation: sweep 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* The skyline window pattern follows the accent colour too */
+.skyline #sky-win rect {
+  fill: var(--accent);
+}
+
+/* ---------- Command palette (press / or Ctrl+K) ---------- */
+.pal {
+  position: fixed;
+  inset: 0;
+  z-index: 260;
+  display: grid;
+  place-items: start center;
+  padding: 12vh 16px 16px;
+  background: rgba(3, 5, 9, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pal[hidden] {
+  display: none;
+}
+
+.pal-box {
+  width: min(560px, 100%);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+
+.pal-input {
+  width: 100%;
+  padding: 16px 18px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--paper);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  outline: none;
+}
+
+.pal-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.pal-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.pal-item.is-active {
+  color: var(--paper);
+  background: rgba(var(--accent-rgb), 0.12);
+}
+
+.pal-hint {
+  font-size: 0.75rem;
+  color: var(--slate);
+}
+
+.pal-empty {
+  padding: 12px;
+  color: var(--slate);
+}
+
+.pal-foot {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  color: var(--slate);
+  border-top: 1px solid var(--rule);
+}
+
+/* ---------- Availability countdown (hero status row) ---------- */
+.avail {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--body);
+}
+
+.avail:empty {
+  display: none;
+}
+
+.avail[hidden] {
+  display: none;
+}
+
+/* ---------- Badge wall (Lab work) ---------- */
+.badge-wall {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  max-width: 360px;
+  margin-top: 28px;
+}
+
+.badge {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: rgba(var(--accent-rgb), 0.18);
+  border: 1px solid rgba(var(--accent-rgb), 0.5);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.2);
+  transition: transform 0.25s ease;
+}
+
+.badge:hover {
+  transform: scale(1.12);
+}
+
+.badge.is-wip {
+  background: transparent;
+  border: 1px dashed var(--slate);
+  box-shadow: none;
+}
+
+.badge-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+.badge-legend .badge {
+  width: 12px;
+  height: 12px;
+  aspect-ratio: auto;
+  display: inline-block;
+}
+
+/* ---------- Packet-flow diagram (threatlens) ---------- */
+.flow {
+  margin: 18px 0 6px;
+  overflow-x: auto;
+}
+
+.flow svg {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+}
+
+.flow-line {
+  fill: none;
+  stroke: rgba(var(--accent-rgb), 0.35);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+}
+
+.flow-node {
+  fill: var(--surface);
+  stroke: rgba(var(--accent-rgb), 0.6);
+  stroke-width: 1;
+}
+
+.flow-label {
+  fill: var(--body);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-anchor: middle;
+}
+
+.flow-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-sweep {
+    display: none;
+  }
+}
+
+/* ---------- Colour dots and calm toggle share one bar ---------- */
+.theme-switch {
+  align-items: center;
+}
+
+.calm-toggle {
+  padding: 4px 10px;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--body);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.calm-toggle:hover {
+  color: var(--paper);
+}
+
+.calm-toggle[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- Future-role ID card ---------- */
+.id-card {
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.id-card.is-switching {
+  animation: card-switch 0.5s steps(3, end) 1;
+}
+
+@keyframes card-switch {
+  0% {
+    filter: brightness(1.6) saturate(1.4);
+  }
+  100% {
+    filter: none;
+  }
+}
+
+/* Each role tints the photo with its own colour */
+.id-card .photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--accent);
+  mix-blend-mode: color;
+  opacity: 0.35;
+  transition: background-color 0.5s ease;
+}
+
+/* A rubber-stamp label over the photo shows the career track */
+.id-stamp {
+  position: absolute;
+  top: 56px;
+  right: 22px;
+  z-index: 3;
+  padding: 4px 10px;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: rgba(5, 7, 12, 0.65);
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-6deg);
+  text-shadow: 0 0 10px var(--accent-glow);
+  pointer-events: none;
+}
+
+.id-mission {
+  min-height: 3em;
+  margin-top: 8px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.role-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.role-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--body);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.role-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--swatch);
+}
+
+.role-dot:hover {
+  color: var(--paper);
+  border-color: var(--swatch);
+}
+
+.role-dot[aria-pressed="true"] {
+  color: var(--paper);
+  border-color: var(--swatch);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.card-share {
+  padding: 6px 4px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.card-share:hover {
+  color: var(--paper);
+}
+
+/* ---------- Calm mode: no motion, cursor or glitch (set from the colour bar) ---------- */
+html.calm:not(.is-preloading) *,
+html.calm:not(.is-preloading) *::before,
+html.calm:not(.is-preloading) *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html.calm:not(.is-preloading) .cursor-dot,
+html.calm:not(.is-preloading) .cursor-ring,
+html.calm:not(.is-preloading) .scan-sweep,
+html.calm:not(.is-preloading) .spotlight,
+html.calm:not(.is-preloading) .id-card .scan {
+  display: none;
+}
+
+/* ---------- Print: hide the on-screen controls ---------- */
+@media print {
+  .theme-switch,
+  .role-switch,
+  .card-actions,
+  .summary-btn,
+  .pal {
+    display: none !important;
+  }
+}

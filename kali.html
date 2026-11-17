@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Kali machine | Test your knowledge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="kali.css" />
+</head>
+<body>
+  <header class="kali-top">
+    <a class="kali-back" href="index.html#contact">&larr; Portfolio</a>
+    <p class="kali-title">kali@portfolio &middot; target: this site</p>
+    <p class="kali-timer" id="timer" aria-live="off">05:00</p>
+  </header>
+  <div class="kali-bar" aria-hidden="true"><span id="timer-bar"></span></div>
+
+  <main class="kali-main">
+    <section class="term" aria-label="Kali terminal">
+      <div class="term-out" id="out" aria-live="polite"></div>
+      <div class="term-prompt" id="prompt-top"></div>
+      <div class="term-row">
+        <span class="term-sigil">└─$</span>
+        <input id="cmd" class="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" />
+      </div>
+    </section>
+  </main>
+
+  <div class="result" id="result" hidden>
+    <div class="result-card" role="alertdialog" aria-labelledby="result-title" aria-describedby="result-text">
+      <p class="result-kicker" id="result-kicker"></p>
+      <h1 class="result-title" id="result-title"></h1>
+      <p class="result-text" id="result-text"></p>
+      <code class="result-flag" id="flag-code" hidden></code>
+      <div class="result-actions">
+        <button type="button" class="btn btn-primary" id="kali-copy" hidden>Copy flag</button>
+        <button type="button" class="btn btn-ghost" id="kali-retry" hidden>Try again</button>
+        <a class="btn btn-ghost" href="index.html#contact">Back to portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="challenge.js"></script>
+  <script src="kali.js"></script>
+</body>
+</html>
