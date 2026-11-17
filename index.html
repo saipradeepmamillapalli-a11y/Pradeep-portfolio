@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="preloader.css" />
-  <link rel="stylesheet" href="challenge.css" />
   <link rel="stylesheet" href="features.css" />
   <link rel="preload" href="boot-photo.jpg" as="image" />
 
@@ -384,17 +383,9 @@
             <div class="row">
               <dt>Phone</dt>
               <dd>
-                <form class="flag-form" id="flag-form" autocomplete="off">
-                  <label class="flag-label" for="flag-input">My number is hidden. Find the flag on the Kali machine and enter it here.</label>
-                  <div class="flag-row">
-                    <input id="flag-input" class="flag-input" type="text" placeholder="FLAG{...}" aria-describedby="flag-msg" />
-                    <button class="btn btn-primary flag-submit" type="submit">Submit</button>
-                  </div>
-                </form>
-                <p class="flag-msg" id="flag-msg" role="status" aria-live="polite"></p>
-                <div class="phone-reveal" id="phone-reveal" hidden>
-                  <a id="phone-link" href="#contact">Phone</a>
-                  <button class="copy-btn" type="button" id="phone-copy" data-copy="">Copy number</button>
+                <a class="phone-link" href="tel:+916305541203">+91 63055 41203</a>
+                <div class="copy-row">
+                  <button class="copy-btn" type="button" data-copy="+91 63055 41203">Copy number</button>
                 </div>
               </dd>
             </div>
@@ -405,16 +396,6 @@
             <!-- Paste your Calendly or Cal.com link in href, then delete the hidden attribute -->
             <a class="btn btn-ghost booking-btn" href="https://cal.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer" hidden>Book an interview</a>
           </div>
-        </div>
-      </div>
-    </section>
-  <!-- CHALLENGE -->
-    <section id="challenge" class="section">
-      <div class="container split">
-        <h2 class="section-title">Challenge</h2>
-        <div class="split-body">
-          <p class="lead">Can you find my flag? Open a Kali machine and capture it within 5 minutes. The flag reveals my phone number.</p>
-          <a class="btn btn-primary challenge-btn" href="kali.html">Test your knowledge</a>
         </div>
       </div>
     </section>
@@ -432,7 +413,6 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="preloader.js"></script>
   <script src="script.js"></script>
-  <script src="challenge.js"></script>
   <script src="features.js"></script>
   <script src="idcard.js"></script>
   <script src="visitor.js"></script>
