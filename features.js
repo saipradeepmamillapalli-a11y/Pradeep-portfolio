@@ -67,7 +67,6 @@
     ['Certificates', 'certificates'],
     ['Skills', 'skills'],
     ['Contact', 'contact'],
-    ['Challenge', 'challenge'],
   ].map(([label, id]) => ({
     label,
     hint: 'section',
@@ -94,12 +93,6 @@
         if (link) link.click();
       },
     },
-    {
-      label: 'Open the Kali machine',
-      hint: 'challenge',
-      run: () => {
-        window.location.href = 'kali.html';
-      },
     },
     {
       label: 'Back to top',
